@@ -1,0 +1,100 @@
+
+html, body, h1, p {
+	margin: 0px;
+	padding: 0px;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	position: relative;
+	min-height: 100%;
+	background-color: #333333;
+	color: #FFFFFF;
+}
+
+
+
+#topBar {
+	position: relative;
+	top: 50px;
+	/*margin-bottom: 0px;
+	margin-top: 0px;*/
+	/*padding: 0px;*/
+	background-color: #4c4c4c;
+	height: 50px;
+}
+
+#navigation {
+	position: fixed;
+	top: 0px;
+	left: 50%;
+	margin-left: -256px;
+	padding: 0px;
+	z-index: 999;
+}
+
+#navigation ul {
+	position: fixed;
+	margin-top: 0px;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	background-color: #9c0000;
+	border-radius: 0px 0px 5px 5px;
+
+}
+
+#navigation li {
+	float: left;
+	margin: 0px;
+}
+
+#navigation a:link, #navigation a:visited { 
+	display:block;
+	width: 120px;
+	font-weight: bold;
+	font-family: sans-serif;
+	color: #FFFFFF;
+	text-align: center;
+	padding: 4px;
+	text-decoration: none;
+	border-radius: 0px 0px 5px 5px;
+	/*text-transform: uppercase;*/
+}
+
+
+#navigation a:hover, #navigation a:active { 
+	background-color: #ca0000;
+
+}
+
+#container {
+	position: relative;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: auto;
+	padding-top: 50px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#sideBar {
+	padding-top: 50px;
+	padding-right: 0px;
+	position: relative;
+	float: left;
+	width: 200px;
+}
+
+#main {
+	padding: 55px 25px;
+	position: relative;
+	float: left;
+}
+
+#header {
+
+}
