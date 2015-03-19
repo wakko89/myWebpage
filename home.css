@@ -22,7 +22,7 @@ table {
 }
 
 
-#topBar {
+.topBar {
 	position: relative;
 	/*margin-bottom: 0px;
 	margin-top: 0px;*/
@@ -31,30 +31,53 @@ table {
 	height: 50px;
 }
 
-#navigation {
+.navigation {
 	position: fixed;
 	top: 0px;
+	width: 100%;
+	text-align: center;
+	/*
+	top: 0px;
+
 	left: 50%;
 	margin-left: -256px;
-	padding: 0px;
+	padding: 0px;*/
 	z-index: 999;
 }
 
-#navigation ul {
-	position: fixed;
+.navigation::after { 
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.navigation ul {
+	/*position: relative;*/
+	/*width: initial;*/
+	display: inline-block; 	/* 	PRAISE JESUS! 
+								Makes the element only as wide as 
+								the total width of it's children */ 
+	margin-left: auto; 	/* 							*/
+	margin-right: auto;	/*	Center aligns the list	*/
 	border-style: none solid solid ;
 	border-width: 2px;
 	border-color: #000000;
 	background-color: #9c0000;
 	border-radius: 0px 0px 5px 5px;
-
 }
 
-#navigation li {
+.navigation ul::after { 
+	content: "";
+	display: table;
+	clear: both;
+}
+
+
+.navigation li {
 	float: left;
 }
 
-#navigation a:link, #navigation a:visited { 
+.navigation a:link, .navigation a:visited { 
 	display:block;
 	width: 120px;
 	padding: 4px;
@@ -65,24 +88,24 @@ table {
 	text-transform: uppercase;
 	/* Creating an outline like a boss */
 	text-shadow: 1px  1px 0 #000,
-				-1px -1px 0 #000,
-				 1px -1px 0 #000,
-				-1px  1px 0 #000,
-				 0px  1px 0 #000,
-				 1px  0px 0 #000,
-				 0px -1px 0 #000,
-				-1px  0px 0 #000;
+	-1px -1px 0 #000,
+	1px -1px 0 #000,
+	-1px  1px 0 #000,
+	0px  1px 0 #000,
+	1px  0px 0 #000,
+	0px -1px 0 #000,
+	-1px  0px 0 #000;
 	letter-spacing: 1px;
 	border-radius: 0px 0px 5px 5px;
 }
 
 
-#navigation a:hover, #navigation a:active { 
+.navigation a:hover, .navigation a:active { 
 	background-color: #ca0000;
 
 }
 
-#container {
+.container {
 	/*height: auto;*/
 	width: 90%;
 	/*position: relative;*/
@@ -94,13 +117,13 @@ table {
 }
 
 /* Fix to make element wrap around children */
-#container::after { 
+.container::after { 
 	content: "";
 	display: table;
 	clear: both;
 }
 
-#sideBar {
+.sideBar {
 	/*position: relative;*/
 	/*float: left;*/
 	width: 15%;
@@ -108,7 +131,7 @@ table {
 	float: left;
 }
 
-#main {
+.main {
 	margin-right: 5%;
 	padding-bottom: 6em;
 	width: 80%;
@@ -117,42 +140,42 @@ table {
 
 }
 
-#main>div {
+.main>div {
 	margin-bottom: 40px;
 }
 
-#textContent p{
+.textContent p{
 	padding: 0.5em 0px;
 }
 
-#header {
+.header {
 
 }
 
-#imgGrid {
+.imgGrid {
 	/*position: relative;*/
 	width: 100%;
 	height: auto;
 }
 
 /* Fix to make element wrap around children */
-#imgGrid::after { 
+.imgGrid::after { 
 	content: "";
 	display: table;
 	clear: both;
 }
 
-#imgGrid p {
+.imgGrid p {
 	/*border: 1px solid #FFFFFF;
 	border-collapse: collapse;*/
 	background-color: #000000;
 	float: left;
 	width: 50%;
-	height: auto;
-	line-height: 300px;
+	/*height: auto;*/
+	/*line-height: 300px;*/
 }
 
-#imgGrid img {
+.imgGrid img {
 	height: auto;
 	max-width: 100%;
 	display: block;
@@ -161,11 +184,11 @@ table {
 	/*margin-top: 10px;*/
 }
 
-#textContent {
+.textContent {
 	float: left;
 }
 
-#footer {
+.footer {
 	position: fixed;
 	bottom: 0px;
 	width: 100%;
@@ -176,7 +199,7 @@ table {
 	font-size: 0.875em;
 }
 
-#footer p {
+.footer p {
 	position: fixed;
 	width: 16%;
 	right: 8%;
@@ -184,7 +207,8 @@ table {
 	color: #a0a0a0;
 }
 @media screen and (min-width: 920px) {
-	#imgGrid p {
+	.imgGrid p {
 		width: 33%;
+		height: 33%;
 	}
 }
