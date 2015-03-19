@@ -88,13 +88,13 @@ table {
 	text-transform: uppercase;
 	/* Creating an outline like a boss */
 	text-shadow: 1px  1px 0 #000,
-	-1px -1px 0 #000,
-	1px -1px 0 #000,
-	-1px  1px 0 #000,
-	0px  1px 0 #000,
-	1px  0px 0 #000,
-	0px -1px 0 #000,
-	-1px  0px 0 #000;
+				-1px -1px 0 #000,
+				 1px -1px 0 #000,
+				-1px  1px 0 #000,
+				 0px  1px 0 #000,
+				 1px  0px 0 #000,
+				 0px -1px 0 #000,
+				-1px  0px 0 #000;
 	letter-spacing: 1px;
 	border-radius: 0px 0px 5px 5px;
 }
