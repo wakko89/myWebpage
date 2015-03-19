@@ -1,25 +1,29 @@
 
-html, body, h1, p {
+html, body, div, h1, p, a, ul, li, table, tr, td, img {
 	margin: 0px;
 	padding: 0px;
-}
-
-html {
-	height: 100%;
+	font-family: sans-serif;
 }
 
 body {
 	position: relative;
-	min-height: 100%;
 	background-color: #333333;
 	color: #FFFFFF;
+	padding: 50px 0px 0px;
 }
 
+ul {
+	list-style-type: none;
+}
+
+table {
+	border-style: solid;
+	border-collapse: collapse;
+}
 
 
 #topBar {
 	position: relative;
-	top: 50px;
 	/*margin-bottom: 0px;
 	margin-top: 0px;*/
 	/*padding: 0px;*/
@@ -38,10 +42,9 @@ body {
 
 #navigation ul {
 	position: fixed;
-	margin-top: 0px;
-	list-style-type: none;
-	margin: 0px;
-	padding: 0px;
+	border-style: none solid solid ;
+	border-width: 2px;
+	border-color: #000000;
 	background-color: #9c0000;
 	border-radius: 0px 0px 5px 5px;
 
@@ -49,14 +52,12 @@ body {
 
 #navigation li {
 	float: left;
-	margin: 0px;
 }
 
 #navigation a:link, #navigation a:visited { 
 	display:block;
 	width: 120px;
 	font-weight: bold;
-	font-family: sans-serif;
 	color: #FFFFFF;
 	text-align: center;
 	padding: 4px;
@@ -72,29 +73,106 @@ body {
 }
 
 #container {
-	position: relative;
-	margin-top: 0px;
-	margin-left: 0px;
-	margin-right: auto;
-	padding-top: 50px;
-	padding-left: 15px;
-	padding-right: 15px;
+	/*height: auto;*/
+	width: 90%;
+	/*position: relative;*/
+	margin-top: 50px;
+	margin-right: 5%;
+	margin-left: 5%;
+}
+
+/* Fix to make element wrap around children */
+#container::after { 
+	content: "";
+	display: table;
+	clear: both;
 }
 
 #sideBar {
-	padding-top: 50px;
-	padding-right: 0px;
 	position: relative;
+	/*float: left;*/
+	width: 15%;
+	height: 100%;
 	float: left;
-	width: 200px;
 }
 
 #main {
-	padding: 55px 25px;
+	margin-left: 5%;
+	padding-bottom: 6em;
+	width: 80%;
 	position: relative;
 	float: left;
+
+}
+
+#main>div {
+	margin-bottom: 40px;
+}
+
+#textContent p{
+	padding: 0.5em 0px;
 }
 
 #header {
 
+}
+
+#imgGrid {
+	/*position: relative;*/
+	width: 100%;
+	height: auto;
+}
+
+/* Fix to make element wrap around children */
+#imgGrid::after { 
+	content: "";
+	display: table;
+	clear: both;
+}
+
+#imgGrid p {
+	/*border: 1px solid #FFFFFF;
+	border-collapse: collapse;*/
+	background-color: #000000;
+	float: left;
+	width: 50%;
+	height: auto;
+	line-height: 300px;
+}
+
+#imgGrid img {
+	height: auto;
+	max-width: 100%;
+	display: block;
+
+	vertical-align: middle;
+	/*margin-top: 10px;*/
+}
+
+#textContent {
+	float: left;
+}
+
+#footer {
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	height: 20px;
+	background-color: #4c4c4c;
+	color: #333333;
+	z-index: 999;
+	font-size: 0.875em;
+}
+
+#footer p {
+	position: fixed;
+	width: 16%;
+	right: 8%;
+	font-weight: bold;
+	color: #a0a0a0;
+}
+@media screen and (min-width: 920px) {
+	#imgGrid p {
+		width: 33%;
+	}
 }
