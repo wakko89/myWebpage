@@ -9,7 +9,7 @@ body {
 	position: relative;
 	background-color: #333333;
 	color: #FFFFFF;
-	padding: 50px 0px 0px;
+	/*margin: 50px 0px 0px;*/
 }
 
 ul {
@@ -21,6 +21,16 @@ table {
 	border-collapse: collapse;
 }
 
+
+.topBar {
+	position: relative;
+	/*margin-bottom: 0px;
+	margin-top: 0px;*/
+	/*padding: 0px;*/
+	background-color: #4c4c4c;
+	height: 50px;
+	margin: 50px 0px;
+}
 
 
 .navigation {
@@ -99,20 +109,15 @@ table {
 
 }
 
-.topBar {
-	position: relative;
-	/*margin-bottom: 0px;
-	margin-top: 0px;*/
-	/*padding: 0px;*/
-	background-color: #4c4c4c;
-	height: 50px;
+.page {
+	margin: 0px 5% ;
 }
 
 .container {
 	/*height: auto;*/
-	width: 90%;
+	width: 85%;
 	/*position: relative;*/
-	margin: 50px 5% 20px;
+	margin: 0px;
 	/*
 	margin-top: 50px;
 	margin-right: 5%;
@@ -127,18 +132,63 @@ table {
 }
 
 .sideBar {
-	/*position: relative;*/
-	/*float: left;*/
+	position: relative;
+	/*right: 5%;*/
 	width: 15%;
+	float: right;
 	/*height: 100%;*/
-	float: left;
-	overflow: hidden;
+	/*background-color: #c4c4c4;
+	border-radius: 5px;*/
+}
+
+.sideBar ul {
+	/*display: inline-block; 	/* 	PRAISE JESUS! 
+								Makes the element only as wide as 
+								the total width of it's children */ 
+	/*margin-left: auto; 	/* 								*/
+	/*margin-right: auto;	/*	Center aligns the element	*/
+	border: 2px solid #000000;
+	background-color: #9c0000;
+	border-radius: 5px;
+}
+
+.sideBar li {
+	/*float: left;*/
+	display: inline-block;
+	width: 100%;
+	/*margin-left: 10%;*/ 
+
+}
+
+.sideBar p, .sideBar a {
+	
+	display: block;
+	padding-left: 10%;
+	overflow: ellipsis;
+	/*width: 100%;
+	color: #000000;*/
+	/*text-align: right;
+	text-indent: 0.5em;*/
+	border-radius: 5px;
+	text-shadow: 1px  1px 0 #000,
+				-1px -1px 0 #000,
+				 1px -1px 0 #000,
+				-1px  1px 0 #000,
+				 0px  1px 0 #000,
+				 1px  0px 0 #000,
+				 0px -1px 0 #000,
+				-1px  0px 0 #000;
+}
+
+.sideBar p:hover, .sideBar a:hover  {
+	background-color: #ca0000;
+
 }
 
 .main {
-	margin-right: 5%;
+	/*margin-right: 5%;*/
 	/*padding-bottom: 6em;*/
-	width: 80%;
+	width: 95%;
 	/*position: relative;*/
 	float: left;
 
@@ -160,7 +210,7 @@ table {
 	/*position: relative;*/
 	width: 100%;
 	height: auto;
-	border: 1px solid #FFFFFF;
+	/*border: 1px solid #FFFFFF;*/
 }
 
 /* Fix to make element wrap around children */
@@ -171,9 +221,10 @@ table {
 }
 
 .box {
-	/*border: 1px solid #FFFFFF;
-	border-collapse: collapse;*/
-	background-color: #4c4c4c;
+	border: 1px solid #FFFFFF;
+	border-collapse: collapse;
+	margin: -1px;
+	background-color: #4c4c4c; /* 4c4c4c */
 	float: left;
 	position: relative;
 	width: 50%;
@@ -187,7 +238,7 @@ table {
 	padding-top:100%;
 }
 
-.imgGrid p {
+.box p {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -199,7 +250,7 @@ table {
 }
 
 
-.imgGrid img {
+.box img {
 	max-height: 100%;
 	max-width: 100%;
 	position: relative;
@@ -240,13 +291,13 @@ table {
 	font-weight: bold;
 	color: #a0a0a0;
 }
-/*
+
 @media screen and (min-width: 920px) {
-	.imgGrid p {
+	.box {
 		width: 33%;
 		height: 33%;
 	}
-*/
+
 .hText {
 	width: 21%;
 	padding: 0px 1%;
