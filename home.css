@@ -49,8 +49,8 @@ table {
 	display: inline-block; 	/* 	PRAISE JESUS! 
 								Makes the element only as wide as 
 								the total width of it's children */ 
-	margin-left: auto; 	/* 							*/
-	margin-right: auto;	/*	Center aligns the list	*/
+	margin-left: auto; 	/* 								*/
+	margin-right: auto;	/*	Center aligns the element	*/
 	border-style: none solid solid ;
 	border-width: 2px;
 	border-color: #000000;
@@ -160,6 +160,7 @@ table {
 	/*position: relative;*/
 	width: 100%;
 	height: auto;
+	border: 1px solid #FFFFFF;
 }
 
 /* Fix to make element wrap around children */
@@ -169,24 +170,45 @@ table {
 	clear: both;
 }
 
-.imgGrid p {
+.box {
 	/*border: 1px solid #FFFFFF;
 	border-collapse: collapse;*/
-	background-color: #000000;
+	background-color: #4c4c4c;
 	float: left;
+	position: relative;
 	width: 50%;
 	/*height: auto;*/
 	/*line-height: 300px;*/
 }
 
-.imgGrid img {
-	height: auto;
-	max-width: 100%;
+.box:before {
+	content: "";
 	display: block;
-
-	vertical-align: middle;
-	/*margin-top: 10px;*/
+	padding-top:100%;
 }
+
+.imgGrid p {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	/*
+	border: 1px solid #FFFFFF;
+	border-collapse: collapse;*/
+}
+
+
+.imgGrid img {
+	max-height: 100%;
+	max-width: 100%;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+
 
 .hText {
 	float: left;
@@ -218,12 +240,13 @@ table {
 	font-weight: bold;
 	color: #a0a0a0;
 }
+/*
 @media screen and (min-width: 920px) {
 	.imgGrid p {
 		width: 33%;
 		height: 33%;
 	}
-
+*/
 .hText {
 	width: 21%;
 	padding: 0px 1%;
