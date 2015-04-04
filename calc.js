@@ -160,4 +160,6 @@ var init = function() {
 			removeLast();
 		};
 	});
+
+	//TROLLOLOL!
 }
