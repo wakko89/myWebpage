@@ -40,30 +40,73 @@ var eventHandler = function(data) {
 	}
 }
 
-var signClicked = function(data) {
-	if(data === "=") {
-
-		values.push(currentNbr);
-		currentNbr = "";
-
-		if(values.length < 3) {
-			return;
+var arrayReplace = function(data) {
+	if(data.indexOf("*") > -1 || data.indexOf("/") > -1) {
+		var multi = data.indexOf("*");
+		var divide = data.indexOf("/");
+		var i = 0;
+		if(multi == -1) {
+			multi = 9999;
+		}
+		if(divide == -1) {
+			divide = 9999;
+		}
+		if(multi < divide) {
+			i = multi;
+		} else{
+			i = divide;
 		}
 
-		var sum = Number(values[0]);
-		for(var i = 1; i < values.length; i++) {
-			var f = values[i++];
-			var b = Number(values[i]);
-			sum = calculate(sum, b, f);
-		}	
+		var a = data[i - 1];
+		var f = data[i];
+		var b = data[i + 1];
 
-		document.getElementById('display').value = sum;
-		/*
-		if (firstNbr !== "" && secondNbr !== "") {
-			sum = Number(calculate(firstNbr, secondNbr, func));
-			displayField = firstNbr + func + secondNbr + "=" + sum;
-			document.getElementById('display').value = displayField;
-		}*/
+		var tmpValues = [];
+		for(var j = 0; j < data.length; j++) {
+			if(j == i - 1) {
+				tmpValues.push(calculate(a, b, f));
+				j += 2;
+			} else {
+				tmpValues.push(data[j]);
+			}
+		}
+		return tmpValues;
+	}
+	
+	var a = data[0];
+	var f = data[1];
+	var b = data[2];
+
+	var tmpSum = calculate(a, b, f);
+	var tmpValues = [];
+	tmpValues[0] = tmpSum;
+	for(var i = 3; i < data.length; i++) {
+		tmpValues[i - 2] = data[i];
+	}
+	return tmpValues;
+}
+
+var equalsClicked = function(data) {
+	//Adds the last number to the array - resets
+	data.push(currentNbr);
+	currentNbr = "";
+
+	//if not enough elements in the array to do math, return
+	if(data.length < 3) {
+		return;
+	}
+	//Whil the array has elements, find calcuation and repeat
+	while(data.length > 1) {
+		data = arrayReplace(data);
+		console.log(data);
+	}
+	return data;
+}
+
+var signClicked = function(data) {
+	if(data === "=") {
+		var sum = equalsClicked(values);
+		updateView("=" + sum[0]);
 	} else if (data === "C") {
 		resetView();
 	} else {
@@ -72,38 +115,33 @@ var signClicked = function(data) {
 		values.push(data);
 		displayField += data;
 		document.getElementById('display').value = displayField;
-		/*
-		//Sets function
-		if(func !== "") {
-			displayField = displayField.replace(func, data);
-			func = data;
-		} else
-		if(func === "") {
-			func = data;
-			displayField += func;
-		}
-		isFirstNbr = false;
-		document.getElementById('display').value = displayField;
-		*/
-
 	}
 }
 
 var nbrClicked = function(data) {
 	displayField += data;
 	currentNbr += data;
-	document.getElementById('display').value = displayField;
+	updateView(currentNbr);
 }
 
 var resetView = function() {
 	displayField = "";
-	document.getElementById('display').value=displayField;
 	firstNbr = "";
 	secondNbr = "";
 	func = "";
 	isFirstNbr = true;
 	values = [];
+	updateView("");
 }
+
+var updateView = function(data) {
+	var text = "";
+	for(var i = 0; i < values.length; i++) {
+		text += values[i];
+	}
+	text += data;
+	document.getElementById('display').value = text;
+};
 
 var calculate = function(firstNbr, secondNbr, func) {
 	var operators = {
@@ -120,11 +158,6 @@ var removeLast = function () {
 		return;
 	};
 	var lastChar = displayField.charAt(displayField.length - 1);
-
-	//contains equals
-  		//finne i til = og fjerne alt etter
-	// else 
-		//inneholder tegn
 
 	if (displayField.indexOf("=") >= 0) {
 		displayField = displayField.slice(0, displayField.indexOf("=")); 
@@ -150,13 +183,9 @@ var removeLast = function () {
 		displayField = displayField.slice(0, displayField.length - 1); 
 		document.getElementById('display').value=displayField;	
 	};
-	//document.getElementById('display').value=displayField;
 };
 
 var init = function() {
-	//var before = document.getElementById("text").inn456erHTML;
-	//alert(before);
-	//document.getElementById("text").innerHTML = "Tekst etter";
 
 	setupButtons("buttons", btns);
 
@@ -181,3 +210,4 @@ var init = function() {
 		};
 	});
 }
+
