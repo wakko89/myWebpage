@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Calculator</title>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="http://livejs.com/live.js"></script>
+		<script type="text/javascript" src="calc.js"> </script>
+		<style type="text/css">
+			h3 {
+				padding: 0px;
+				margin: 0px;
+			}
+			button {
+				width: 50px;
+				height: 50px;
+				margin: 3px;
+				float: left;
+				border-radius: 5px;
+				font-size: 24px;
+			}
+
+			button:focus {
+				outline: 0;
+			}
+
+			#display {
+				width: 215px;
+				height: 25px;
+				font-size: 18px;
+				line-height: 24px;
+				font-weight: bold;
+				border-radius: 2px;
+				margin-bottom: 3px;
+			}
+
+			.calculator {
+				background-color: #AAA;
+				border-radius: 5px;
+				border: 2px solid black;
+				width: 225px;
+				height: 280px;
+				padding: 5px;
+				margin: auto;
+			}
+
+		</style>
+	</head>
+	<body id="body" onload="init()">
+		
+		<div class="calculator">
+			<h3>Kalkulator</h3>
+			<input id="display" type="text" placeholder="|" disabled/>
+			<div id="buttons"></div>
+		</div>
+	</body>
+</html>
+
+

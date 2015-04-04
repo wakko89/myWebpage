@@ -114,10 +114,10 @@ table {
 }
 
 .container {
-	/*height: auto;*/
-	width: 85%;
-	/*position: relative;*/
+	width: 100 %;
 	margin: 0px;
+	/*height: auto;*/
+	/*position: relative;*/
 	/*
 	margin-top: 50px;
 	margin-right: 5%;
@@ -133,9 +133,9 @@ table {
 
 .sideBar {
 	position: relative;
+	width: 100%;
+	float: left;
 	/*right: 5%;*/
-	width: 15%;
-	float: right;
 	/*height: 100%;*/
 	/*background-color: #c4c4c4;
 	border-radius: 5px;*/
@@ -147,24 +147,30 @@ table {
 								the total width of it's children */ 
 	/*margin-left: auto; 	/* 								*/
 	/*margin-right: auto;	/*	Center aligns the element	*/
+	/*margin: -2px;*/
 	border: 2px solid #000000;
 	background-color: #9c0000;
 	border-radius: 5px;
 }
 
-.sideBar li {
-	/*float: left;*/
-	display: inline-block;
-	width: 100%;
-	/*margin-left: 10%;*/ 
+.sideBar ul::after {
+	content: "";
+	display: table;
+	clear: both;
+}
 
+.sideBar li {
+	display: inline-block;
+	width: 20%;
+	float: left;
+	/*margin-left: 10%;*/ 
 }
 
 .sideBar p, .sideBar a {
 	
 	display: block;
 	padding-left: 10%;
-	overflow: ellipsis;
+	overflow: hidden;
 	/*width: 100%;
 	color: #000000;*/
 	/*text-align: right;
@@ -188,7 +194,7 @@ table {
 .main {
 	/*margin-right: 5%;*/
 	/*padding-bottom: 6em;*/
-	width: 95%;
+	width: 100%;
 	/*position: relative;*/
 	float: left;
 
@@ -298,7 +304,25 @@ table {
 		height: 33%;
 	}
 
-.hText {
-	width: 21%;
-	padding: 0px 1%;
+	.hText {
+		width: 21%;
+		padding: 0px 1%;
+	}
+
+	.sideBar {
+		float: right;
+		width: 15%;
+	}
+
+	.sideBar li {
+		width: 100%;		
+	}
+	
+	.container {
+		width: 85%;
+	}
+	.main {
+		width: 95%;
+	}
 }
+
