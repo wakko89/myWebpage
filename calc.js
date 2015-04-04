@@ -1,6 +1,7 @@
 var btns = [7,8,9,"+",4,5,6,"-",1,2,3,"*","C",0, "=","/"];
 var displayField = "";
-var firstNbr = "", secondNbr = "", func = "";
+var currentNbr = "", func = "";
+var values = [];
 var isFirstNbr = true;
 var sum = 0;
 
@@ -41,14 +42,37 @@ var eventHandler = function(data) {
 
 var signClicked = function(data) {
 	if(data === "=") {
+
+		values.push(currentNbr);
+		currentNbr = "";
+
+		if(values.length < 3) {
+			return;
+		}
+
+		var sum = Number(values[0]);
+		for(var i = 1; i < values.length; i++) {
+			var f = values[i++];
+			var b = Number(values[i]);
+			sum = calculate(sum, b, f);
+		}	
+
+		document.getElementById('display').value = sum;
+		/*
 		if (firstNbr !== "" && secondNbr !== "") {
 			sum = Number(calculate(firstNbr, secondNbr, func));
 			displayField = firstNbr + func + secondNbr + "=" + sum;
 			document.getElementById('display').value = displayField;
-		}
+		}*/
 	} else if (data === "C") {
 		resetView();
 	} else {
+		values.push(currentNbr);
+		currentNbr = "";
+		values.push(data);
+		displayField += data;
+		document.getElementById('display').value = displayField;
+		/*
 		//Sets function
 		if(func !== "") {
 			displayField = displayField.replace(func, data);
@@ -60,18 +84,14 @@ var signClicked = function(data) {
 		}
 		isFirstNbr = false;
 		document.getElementById('display').value = displayField;
+		*/
+
 	}
 }
 
 var nbrClicked = function(data) {
 	displayField += data;
-	if(isFirstNbr) {
-		//add clicked nbr to firstNbr
-		firstNbr += data;
-	} else {
-		//add clicked nbr to secondNbr
-		secondNbr += data;
-	}
+	currentNbr += data;
 	document.getElementById('display').value = displayField;
 }
 
@@ -82,10 +102,10 @@ var resetView = function() {
 	secondNbr = "";
 	func = "";
 	isFirstNbr = true;
+	values = [];
 }
 
 var calculate = function(firstNbr, secondNbr, func) {
-	
 	var operators = {
 		"+": function(x, y) {return Number(x) + Number(y)}, 
 		"-": function(x, y) {return Number(x) - Number(y)}, 
@@ -160,6 +180,4 @@ var init = function() {
 			removeLast();
 		};
 	});
-
-	//TROLLOLOL!
 }
