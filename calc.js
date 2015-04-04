@@ -40,22 +40,20 @@ var eventHandler = function(data) {
 	}
 }
 
+var findSmallestPositiveNumber = function(array) {
+	var min = 9999;
+	for(var i = 0; i < array.length; i++) {
+		if(array[i] > -1 && array[i] < min) {
+			min = array[i];
+		}
+	}
+	return min;
+}
+
 var arrayReplace = function(data) {
 	if(data.indexOf("*") > -1 || data.indexOf("/") > -1) {
-		var multi = data.indexOf("*");
-		var divide = data.indexOf("/");
-		var i = 0;
-		if(multi == -1) {
-			multi = 9999;
-		}
-		if(divide == -1) {
-			divide = 9999;
-		}
-		if(multi < divide) {
-			i = multi;
-		} else{
-			i = divide;
-		}
+		var tmpArray = [data.indexOf("*"), data.indexOf("/")];
+		var i = findSmallestPositiveNumber(tmpArray);
 
 		var a = data[i - 1];
 		var f = data[i];

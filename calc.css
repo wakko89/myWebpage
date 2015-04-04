@@ -1,3 +1,13 @@
+html, body {
+	margin: 0px;
+	min-height: 100%;
+}
+
+html:after, body:before, body:after {
+	content: "";
+	display: table;
+	clear: both;
+}
 
 h3 {
 	padding: 0px;
@@ -27,11 +37,18 @@ button:focus {
 }
 
 .calculator {
+	position: relative;
 	background-color: #AAA;
 	border-radius: 5px;
 	border: 2px solid black;
 	width: 225px;
-	height: 280px;
+	/*height: 250px;*/
 	padding: 5px;
-	margin: auto;
+	margin: 20px auto;
+}
+
+.calculator:after, #buttons:after {
+	content: "";
+	display: table;
+	clear: both;
 }
